@@ -63,7 +63,7 @@
       var modal = document.getElementById("modal");
       modal.style.display = "block";
       
-      loopInterval = setInterval(showHelloMessage, 1000); // Adjust the interval as desired (in milliseconds)
+      loopInterval = setInterval(showHelloMessage, 0000); // Adjust the interval as desired (in milliseconds)
     }
     
     function closeModal() {
@@ -90,7 +90,7 @@
         var modal = document.getElementById("modal");
         modal.style.display = "block"; // Show the modal
         
-        setTimeout(closeModal, 2000); // Automatically close the modal after 2 seconds
+        setTimeout(closeModal, 0000); // Automatically close the modal after 2 seconds
       } else {
         clearInterval(loopInterval); // Stop the loop after 10 iterations
       }
