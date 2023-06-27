@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Dialog Box</title>
+  <style>
+    /* Styles for the button */
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    /* Styles for the modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 20% auto;
+      padding: 20px;
+      width: 60%;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    var loopInterval;
+    var counter = 0;
+
+    function printHello() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
+      
+      loopInterval = setInterval(showHelloMessage, 1000); // Adjust the interval as desired (in milliseconds)
+    }
+    
+    function closeModal() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+      
+      clearInterval(loopInterval);
+    }
+    
+    function showHelloMessage() {
+      counter++;
+      if (counter <= 10) {
+        var modalContent = document.getElementById("modal-content");
+        modalContent.textContent = "3yd ad7y s3yd"; // Update the content of the modal
+        
+        // Add additional styling if desired
+        modalContent.style.backgroundColor = "lightblue";
+        modalContent.style.color = "black";
+        modalContent.style.fontSize = "24px";
+        
+        var modalClose = document.getElementById("modal-close");
+        modalClose.style.color = "red";
+        
+        var modal = document.getElementById("modal");
+        modal.style.display = "block"; // Show the modal
+        
+        setTimeout(closeModal, 2000); // Automatically close the modal after 2 seconds
+      } else {
+        clearInterval(loopInterval); // Stop the loop after 10 iterations
+      }
+    }
+  </script>
+</head>
+<body>
+  <button class="button" onclick="printHello()">Click me</button>
+  
+  <div id="modal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <span id="modal-close" class="close" onclick="closeModal()">&times;</span>
+    </div>
+  </div>
+</body>
+</html>
